@@ -2,7 +2,7 @@
 
 //########################################################## variables
 #declare EPS = 0.01;
-#declare WALLSZ = <0.2, .5, 10>;
+#declare WALLSZ = <0.2, .5, 2>;
 
 //########################################################## scene
 background {
@@ -22,15 +22,14 @@ light_source {
 camera {
 	location  0
 	//look_at <0, 0, 1>
-	look_at +x
+	look_at z
 }
 
 //########################################################## objects
 box {
 	-0.5, +0.5
 	//texture { pigment { colour Yellow} }
-	scale 0.2
-	rotate 90*y
+	translate 0.5
 	texture { pigment
 	{ image_map
 		{ png "data/duck.png"
@@ -38,14 +37,27 @@ box {
 		}
 	}
 	}
+	translate -0.5
 
-	//scale WALLSZ
-	translate <1, 0, 0> 
+	scale <10, 1, 1>
+	rotate 90*y
+	translate <2, 0, 5> 
 }
 
-//box {
-	//-0.5, +0.5
-	//texture { pigment { colour Cyan} }
-	//scale WALLSZ
-	//translate <-1, 0, 0> 
-//}
+box {
+	-0.5, +0.5
+	//texture { pigment { colour Yellow} }
+	translate 0.5
+	texture { pigment
+	{ image_map
+		{ png "data/duck.png"
+			map_type 0
+		}
+	}
+	}
+	translate -0.5
+
+	scale <10, 1, 1>
+	rotate -90*y
+	translate <-2, 0, 5> 
+}
